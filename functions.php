@@ -182,3 +182,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+
+// Add custom functions by DW FZ KN
+
+/**
+ * Load custom function
+ */
+require get_template_directory() . '/inc/shop-all-products.php';
