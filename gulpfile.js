@@ -30,8 +30,8 @@ gulp.task("watch", function () {
   // BrowserSync ***UPDATE PROXY & PORT***
   browserSync.init({
     open: "external",
-    proxy: "http://localhost/project-an",
-    port: 8080,
+    proxy: "http://localhost:8888/project_an",
+    port: 8888,
   });
   gulp.watch("./**/*").on("change", browserSync.reload);
 });
