@@ -176,3 +176,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Load WooCommerce compatibility file.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	// require get_template_directory() . '/inc/woocommerce.php';
+	require get_template_directory() . '/inc/single-product-functions.php';
+}
