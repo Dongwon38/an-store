@@ -74,6 +74,8 @@ dwsync.xml
 
 .tmp/
 node_modules/
+gulpfile.js
+package.json
 package-lock.json
 .eslintrc.js
 

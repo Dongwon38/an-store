@@ -1,18 +1,19 @@
 {
-  "name": "fwd-wp-school-site",
+  "name": "underscores",
   "version": "1.0.0",
-  "description": "FWD 3600 WordPress Site #3 (School)",
-  "author": "FWD Student",
+  "description": "An Store Project",
+  "author": "Dongwon, Frazer, Keanna",
   "license": "GPL-3.0",
   "main": "index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "autoprefixer": "10.4.20",
+    "browser-sync": "3.0.3",
     "gulp": "5.0.0",
     "gulp-postcss": "10.0.0",
     "gulp-dart-sass": "1.1.0",
-    "gulp-sourcemaps": "3.0.0",
-    "autoprefixer": "10.4.20"
+    "gulp-sourcemaps": "3.0.0"
   }
 }

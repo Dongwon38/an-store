@@ -1,31 +1,40 @@
-const gulp = require('gulp');
-const autoprefixer = require('autoprefixer');
-const postcss = require('gulp-postcss');
-const sass = require('gulp-dart-sass');
-const sourcemaps = require('gulp-sourcemaps');
+const gulp = require("gulp");
+const autoprefixer = require("autoprefixer");
+const browserSync = require("browser-sync").create();
+const postcss = require("gulp-postcss");
+const sass = require("gulp-dart-sass");
+const sourcemaps = require("gulp-sourcemaps");
 
-// Compile Sass and add vendor prefixes if needed
-gulp.task('css', function () {
-	var plugins = [
-		autoprefixer()
-	];
-	return gulp.src('./sass/style.scss')
-	    .pipe(sourcemaps.init())
-	    .pipe(sass({
-			outputStyle: 'expanded',
-			precision: 10,
-			indentType: 'tab',
-			indentWidth: '1'
-	    }).on('error', sass.logError))
-		.pipe(postcss(plugins))
-	    .pipe(sourcemaps.write('./sass'))
-	    .pipe(gulp.dest('./'));
+// Compile Sass to CSS and add prefixes when needed
+gulp.task("css", function () {
+  let plugins = [autoprefixer()];
+  return gulp
+    .src("./sass/*.scss")
+    .pipe(sourcemaps.init())
+    .pipe(
+      sass({
+        outputStyle: "expanded",
+        precision: 10,
+        indentType: "tab",
+        indentWidth: "1",
+      }).on("error", sass.logError)
+    )
+    .pipe(postcss(plugins))
+    .pipe(sourcemaps.write("./sass"))
+    .pipe(gulp.dest("./"));
 });
 
-// Watch all scss files
-gulp.task('watch', function () {
-	gulp.watch( './**/*.scss', gulp.series('css') );
+// Watch everything
+gulp.task("watch", function () {
+  gulp.watch(["./**/*.scss"], gulp.series("css"));
+  // BrowserSync ***UPDATE PROXY & PORT***
+  browserSync.init({
+    open: "external",
+    proxy: "http://localhost:8888/project_an",
+    port: 8888,
+  });
+  gulp.watch("./**/*").on("change", browserSync.reload);
 });
 
 // Default task that runs when running 'npx gulp'
-gulp.task( 'default', gulp.series('css', 'watch') );
+gulp.task("default", gulp.series("css", "watch"));
