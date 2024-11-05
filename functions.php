@@ -181,12 +181,24 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
+	require get_template_directory() . '/inc/single-product-functions.php';
+	require get_template_directory() . '/inc/shop-all-products.php';
 }
 
-
-// Add custom functions by DW FZ KN
-
 /**
- * Load custom function
+ * Register Sidebar
  */
-require get_template_directory() . '/inc/shop-all-products.php';
+function an_store_widget_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Blog Sidebar', 'an-store' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add the widgets you want to display in the sidebar of the blog posts page.', 'an-store' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'an_store_widget_init' );
