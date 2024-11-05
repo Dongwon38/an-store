@@ -1,5 +1,21 @@
 <?php
 
+// For semantic structuring
+function add_opening_section_tag_for_product_details() {
+    ?>
+    <div class="product-main-details">
+    <?php
+}
+add_action('woocommerce_single_product_summary', 'add_opening_section_tag_for_product_details', 4);
+
+// For semantic structuring
+function add_closing_section_tag_for_product_details() {
+    ?>
+    </div>
+    <?php
+}
+add_action('woocommerce_single_product_summary', 'add_closing_section_tag_for_product_details', 31);
+
 // Display Product Dimensions
 function display_product_dimensions() {
     global $product;
@@ -51,12 +67,16 @@ function output_other_products() {
 
                 if ( $query->have_posts() ) {
                     ?>
-                    <h2><?php echo esc_html("Our Other Products"); ?></h2>
+                    <section class="section-other-products">
+                        <h2><?php echo esc_html("Our Other Products"); ?></h2>
+                        <?php
+                        while ( $query->have_posts() ) {
+                            $query->the_post();
+                            wc_get_template_part('content', 'product');
+                        }
+                    ?>
+                    </section>
                     <?php
-                    while ( $query->have_posts() ) {
-                        $query->the_post();
-                        wc_get_template_part('content', 'product');
-                    }
                 }
                 wp_reset_postdata();
             }
