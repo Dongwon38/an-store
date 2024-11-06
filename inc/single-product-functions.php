@@ -60,7 +60,7 @@ function output_other_products() {
             if ( $category->count === 1 ) {
                 $args = array(
                     'post_type' => 'product',
-                    'posts_per_page' => 3,
+                    'posts_per_page' => 4,
                     'orderby' => 'rand',
                 );
                 $query = new WP_Query($args);
@@ -84,3 +84,17 @@ function output_other_products() {
     }
 }
 add_action('woocommerce_after_single_product_summary', 'output_other_products', 20);
+
+
+// Displays 4 related products instead of 3
+function woocommerce_related_products_custom_args( $args ) {
+	$defaults = array(
+		'posts_per_page' => 4,
+		'columns'        => 4,
+	);
+
+	$args = wp_parse_args( $defaults, $args );
+	return $args;
+}
+
+add_action('woocommerce_output_related_products_args','woocommerce_related_products_custom_args');
