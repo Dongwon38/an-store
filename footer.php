@@ -14,8 +14,9 @@
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
 			<?php wp_nav_menu(array( 'theme_location' => 'footer-social-media')); ?>
+			<?php wp_nav_menu(array( 'theme_location' => 'footer-company-info')); ?>
 			<?php wp_nav_menu(array( 'theme_location' => 'footer-resources')); ?>
-			<?php wp_nav_menu(array( 'theme_location' => 'footer-contact-info')); ?>
+			<?php wp_nav_menu(array( 'theme_location' => 'footer-site-navigation')); ?>
 			<?php
 			/* translators: 1: Theme name, 2: Theme author. */
 			printf( esc_html__( 'Theme: %1$s by %2$s.', 'an-store' ), 'an-store', '<a href="http://underscores.me/">Dongwon, Frazer, Keanna</a>' );
