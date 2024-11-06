@@ -51,9 +51,9 @@ function an_store_setup() {
 		array(
 			'menu-1' => esc_html__( 'Primary', 'an-store' ),
 			'footer-social-media' => esc_html__('Footer-Social-Media', 'an-store'),
-			'footer-company-info' => esc_html__('Footer-Contact-Info', 'an-store'),
+			'footer-company-info' => esc_html__('Footer-Company-Info', 'an-store'),
 			'footer-resources' => esc_html__('Footer-Resources', 'an-store'),
-			'footer-site-navigation' => esc_html__('Footer-Site Navigation', 'an-store'),
+			'footer-site-navigation' => esc_html__('Footer-Site-Navigation', 'an-store'),
 		)
 	);
 
