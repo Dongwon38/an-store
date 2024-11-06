@@ -50,6 +50,9 @@ function an_store_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'an-store' ),
+			'footer-social-media' => esc_html__('Footer-Social-Media', 'an-store'),
+			'footer-resources' => esc_html__('Footer-Resources', 'an-store'),
+			'footer-contact-info' => esc_html__('Footer-Contact-Info', 'an-store'),
 		)
 	);
 
