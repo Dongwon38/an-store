@@ -50,6 +50,10 @@ function an_store_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'an-store' ),
+			'footer-social-media' => esc_html__('Footer-Social-Media', 'an-store'),
+			'footer-company-info' => esc_html__('Footer-Company-Info', 'an-store'),
+			'footer-resources' => esc_html__('Footer-Resources', 'an-store'),
+			'footer-site-navigation' => esc_html__('Footer-Site-Navigation', 'an-store'),
 		)
 	);
 
@@ -203,3 +207,8 @@ function an_store_widget_init() {
 	);
 }
 add_action( 'widgets_init', 'an_store_widget_init' );
+
+function disable_woocommerce_comments() {
+
+}
+remove_action('woocommerce_after_single_product','comments_template',10);
