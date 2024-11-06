@@ -49,3 +49,23 @@ function shop_sub_navigation() {
     );
 }
 add_action( 'init', 'shop_sub_navigation' );
+
+
+// Remove Breadcrumbs
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+
+
+// Custom Breadcrumbs
+function custom_breadcrumbs() {
+    global $product;
+    $homepageLink = get_permalink(66);
+    $shopPageLink = get_permalink(8);
+    ?>
+
+    <ul>
+        <li><a href="<?php echo $homepageLink; ?>"><?php echo esc_html("home"); ?></a></li>
+        <li><a href="<?php echo $shopPageLink; ?>"><?php echo esc_html("shop"); ?></a></li>
+    </ul>
+    <?php
+}
+add_action('woocommerce_before_main_content', 'custom_breadcrumbs', 20);
