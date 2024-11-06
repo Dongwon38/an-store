@@ -1,8 +1,8 @@
 {
-  "name": "underscores",
+  "name": "fwd-capstone-project",
   "version": "1.0.0",
-  "description": "An Store Project",
-  "author": "Dongwon, Frazer, Keanna",
+  "description": "FWD Capstone Project",
+  "author": "FWD Students",
   "license": "GPL-3.0",
   "main": "index.php",
   "scripts": {
