@@ -1,0 +1,37 @@
+.wc-block-components-product-sale-badge {
+    display: none !important;
+}
+
+.wc-block-product {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.wc-block-components-product-image {
+    min-width: 100%;
+}
+
+.wc-block-product h3 a {
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: start;
+    color: $color__general-text;
+}
+
+.wc-block-product .wp-block-woocommerce-product-price {
+    flex: 1;
+}
+
+// Add to cart | Choose Options
+
+.wc-block-product .wp-block-button {
+    min-width: 100%;
+}
+
+.wc-block-product .wp-block-button button, .wc-block-product .wp-block-button a {
+    border-radius: 0;
+    width: 100%;
+    color: $color__button-text;
+}
