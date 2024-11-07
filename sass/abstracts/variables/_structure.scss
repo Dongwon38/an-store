@@ -1,2 +1,10 @@
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
+
+// structure for store
+$breakpoint-mobile: 28.125rem; // 450px
+$breakpoint-mobile-lrg: 37.5rem; // 600px
+$breakpoint-tablet-sm: 46.875rem; // 750px
+$breakpoint-tablet-lrg: 64.0625rem; // 1025px
+$breakpoint-desktop: 79.6875rem; // 1275px
+$max-width: 87.5rem; // 1400px
