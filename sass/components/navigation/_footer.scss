@@ -1,4 +1,101 @@
-footer svg {
-    width: 4rem;
+.entry-footer {
+    display: none !important;
+}
+
+// General footer element styles
+
+.site-footer {
+    background-color: $color__greyscale;
+    padding: 3rem 2rem;
+}
+
+.site-footer h3 {
+    font-weight: 300;
+    font-size: 1rem;
+    color: $color__label-text;
+}
+
+.site-footer p {
+    color: $color__strong-text;
+    margin: 0;
+}
+
+.site-footer svg {
+    width: 2rem;
     height: auto;
+}
+
+.site-footer svg:hover {
+    fill: $color__button-base;
+}
+
+// Footer sections
+
+.menu-social-media-navigation-container, .menu-company-information-container, .menu-resources-container, .menu-footer-site-navigation-container {
+    margin: 1rem 0;
+}
+
+.menu-social-media-navigation-container ul {
+    display: flex;
+}
+
+.menu-social-media-navigation-container ul li {
+    padding: 0 0.75rem;
+}
+
+// Footer navigation styles
+
+.site-footer a {
+    text-decoration: none;
+    color: $color__strong-text;
+}
+
+.site-footer a:visited {
+    color: $color__strong-text;
+}
+
+.site-footer a:hover, .site-footer a:active, .site-footer a:focus {
+    color: $color__label-text;
+}
+
+// Copyright
+
+.footer-copyright {
+    padding-top: 1rem;
+}
+
+.footer-copyright p, .site-info .footer-copyright a {
+    color: $color__label-text;
+}
+
+.site-info .footer-copyright a:hover, .site-info .footer-copyright a:active, .site-info .footer-copyright a:focus {
+    color: $color__strong-text; 
+}
+
+@media (min-width: $breakpoint-tablet-sm) {
+    .site-footer {
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .site-footer .site-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        max-width: 60rem;
+    }
+
+    .footer-copyright {
+        min-width: 100%;
+        text-align: center;
+    }
+    
+    .site-footer .site-info section {
+        padding: 1rem;
+    }
+
+    .menu-social-media-navigation-container ul li {
+        padding: 0 0.4rem;
+    }
 }
