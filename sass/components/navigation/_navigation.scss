@@ -71,7 +71,7 @@
           justify-content: center;
           align-items: center;
           text-decoration: none;
-          padding: 1rem;
+          padding: 12px;
           width: 100%;
           border-radius: 10px;
           font-weight: 600;
@@ -145,7 +145,7 @@
   }
 }
 
-// ===== navigation for wide device ===== //
+// ========== navigation for wide device =============== //
 @media (min-width: 700px) {
   .site-header {
     // layout
@@ -172,6 +172,7 @@
       position: static;
       ul {
         display: flex;
+        background-color: transparent;
       }
     }
   }
