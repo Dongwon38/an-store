@@ -206,8 +206,3 @@ function an_store_widget_init() {
 	);
 }
 add_action( 'widgets_init', 'an_store_widget_init' );
-
-function disable_woocommerce_comments() {
-
-}
-remove_action('woocommerce_after_single_product','comments_template',10);

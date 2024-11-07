@@ -98,3 +98,6 @@ function woocommerce_related_products_custom_args( $args ) {
 }
 
 add_action('woocommerce_output_related_products_args','woocommerce_related_products_custom_args');
+
+// Remove sale badge
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
