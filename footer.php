@@ -13,17 +13,34 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'an-store' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'an-store' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'an-store' ), 'an-store', '<a href="http://dongwonkang.info">DW</a>' );
-				?>
+			<section>
+				<?php wp_nav_menu(array( 'theme_location' => 'footer-social-media')); ?>
+			</section>
+			<section>
+				<h3><?php echo esc_html("Company Information"); ?></h3>
+				<?php wp_nav_menu(array( 'theme_location' => 'footer-company-info')); ?>
+			</section>
+			<section>
+				<h3><?php echo esc_html("Resources"); ?></h3>
+				<?php wp_nav_menu(array( 'theme_location' => 'footer-resources')); ?>
+			</section>
+			<section>
+				<h3><?php echo esc_html("Site Navigation"); ?></h3>
+				<?php wp_nav_menu(array( 'theme_location' => 'footer-site-navigation')); ?>
+			</section>
+			<section class="footer-copyright">
+				<p>&copy; 
+					<?php 
+					echo date('Y');
+					echo esc_html(" | A Website By: ");
+					?>
+					<a href="<?php echo esc_url("https://dongwonkang.info"); ?>" target="_blank"><?php echo esc_html("Dongwon"); ?></a>
+					<?php echo esc_html(', '); ?>
+					<a href="<?php echo esc_url("https://frazermok.com"); ?>" target="_blank"><?php echo esc_html("Frazer"); ?></a>
+					<?php echo esc_html(', & '); ?>
+					<a href="<?php echo esc_url("https://keannabayaua.com/"); ?>" target="_blank"><?php echo esc_html("Keanna"); ?></a>
+				</p>
+			</section>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
