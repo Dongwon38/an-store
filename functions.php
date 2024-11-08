@@ -206,3 +206,13 @@ function an_store_widget_init() {
 	);
 }
 add_action( 'widgets_init', 'an_store_widget_init' );
+
+// Custom size for woocommerce product images
+function woocommerce_image_size_override( $size ) {
+	return array(
+		'width' => 500,
+		'height' => 500,
+		'crop' => 1,
+	);
+}
+add_filter('woocommerce_get_image_size_thumbnail', 'woocommerce_image_size_override');

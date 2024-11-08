@@ -2,6 +2,11 @@
     display: none !important;
 }
 
+.wp-block-woocommerce-product-collection ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr !important;
+}
+
 .wc-block-product {
     display: flex;
     flex-direction: column;
@@ -11,6 +16,12 @@
 
 .wc-block-components-product-image {
     min-width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0.2rem 0.2rem 0.6rem;
+}
+
+.wc-block-product h3 {
+    padding: 0 0.5rem;
 }
 
 .wc-block-product h3 a {
@@ -22,6 +33,7 @@
 
 .wc-block-product .wp-block-woocommerce-product-price {
     flex: 1;
+    padding: 0 0.5rem;
 }
 
 // Add to cart | Choose Options
@@ -34,4 +46,31 @@
     border-radius: 0;
     width: 100%;
     color: $color__button-text;
+    background-color: $color__button-base;
+    transition: background-color 0.2s ease;
+}
+
+.wc-block-product .wp-block-button button:hover, .wc-block-product .wp-block-button a:hover {
+    background-color: $color__core;
+    transition: background-color 0.2s ease;
+}
+
+@media (min-width: $breakpoint-tablet-sm) {
+    .wp-block-woocommerce-product-collection ul {
+        grid-template-columns: repeat(4, 1fr)!important;
+    }
+
+    .wc-block-product .wp-block-woocommerce-product-price {
+        margin-bottom: 2rem;
+    }
+}
+
+@media(min-width: $breakpoint-tablet-lrg) {
+    .wc-block-product h3 {
+        margin-top: 1rem !important;
+    }
+
+    .wc-block-product .wp-block-woocommerce-product-price {
+        margin-bottom: 4rem;
+    }
 }
