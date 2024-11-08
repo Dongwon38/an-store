@@ -74,6 +74,8 @@ dwsync.xml
 
 .tmp/
 node_modules/
+gulpfile.js
+package.json
 package-lock.json
 .eslintrc.js
 
@@ -95,5 +97,7 @@ package-lock.json
 # Ignore compiled CSS from repository #
 #####################
 
-style.css.map
+*.css.map
+*.map
 style.css
+woocommerce.css

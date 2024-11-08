@@ -1,15 +1,16 @@
 const gulp = require('gulp');
 const autoprefixer = require('autoprefixer');
+const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
 const sass = require('gulp-dart-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
-// Compile Sass and add vendor prefixes if needed
+// Compile Sass to CSS and add prefixes when needed
 gulp.task('css', function () {
-	var plugins = [
+	let plugins = [
 		autoprefixer()
-	];
-	return gulp.src('./sass/style.scss')
+	]
+	return gulp.src('./sass/*.scss')
 	    .pipe(sourcemaps.init())
 	    .pipe(sass({
 			outputStyle: 'expanded',
@@ -17,14 +18,21 @@ gulp.task('css', function () {
 			indentType: 'tab',
 			indentWidth: '1'
 	    }).on('error', sass.logError))
-		.pipe(postcss(plugins))
+	    .pipe(postcss(plugins))
 	    .pipe(sourcemaps.write('./sass'))
 	    .pipe(gulp.dest('./'));
 });
 
-// Watch all scss files
+// Watch everything
 gulp.task('watch', function () {
-	gulp.watch( './**/*.scss', gulp.series('css') );
+	gulp.watch( ['./**/*.scss' ], gulp.series('css') );
+	// BrowserSync ***UPDATE PROXY & PORT***
+	browserSync.init({
+		open: 'external',
+		proxy: 'http://localhost:8888/an-store',
+		port: 8888
+	});
+	gulp.watch('./**/*').on('change', browserSync.reload);
 });
 
 // Default task that runs when running 'npx gulp'
