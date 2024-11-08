@@ -2,9 +2,12 @@
 --------------------------------------------- */
 @import "navigation/navigation";
 
-/* Posts and pages
+/* Posts and pages = Content
 --------------------------------------------- */
 @import "content/posts-and-pages";
+@import "content/front-page";
+@import "content/about";
+@import "content/contact";
 
 /* Comments
 --------------------------------------------- */
@@ -25,3 +28,7 @@
 /* Galleries
 --------------------------------------------- */
 @import "media/galleries";
+
+/* Product Cards
+--------------------------------------------- */
+@import "content/product-cards";

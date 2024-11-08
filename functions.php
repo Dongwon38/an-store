@@ -50,6 +50,10 @@ function an_store_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'an-store' ),
+			'footer-social-media' => esc_html__('Footer-Social-Media', 'an-store'),
+			'footer-company-info' => esc_html__('Footer-Company-Info', 'an-store'),
+			'footer-resources' => esc_html__('Footer-Resources', 'an-store'),
+			'footer-site-navigation' => esc_html__('Footer-Site-Navigation', 'an-store'),
 		)
 	);
 
@@ -176,3 +180,29 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Load WooCommerce compatibility file.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_template_directory() . '/inc/woocommerce.php';
+	require get_template_directory() . '/inc/single-product-functions.php';
+	require get_template_directory() . '/inc/shop-all-products.php';
+}
+
+/**
+ * Register Sidebar
+ */
+function an_store_widget_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Blog Sidebar', 'an-store' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add the widgets you want to display in the sidebar of the blog posts page.', 'an-store' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'an_store_widget_init' );
