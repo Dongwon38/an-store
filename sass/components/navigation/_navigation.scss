@@ -179,6 +179,8 @@
 @media (min-width: 700px) {
   .site-header {
     // layout
+    border-bottom: 1px solid $color__greyscale;
+    margin-bottom: 16px;
     .site-branding {
       order: 1;
       width: auto;

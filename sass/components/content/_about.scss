@@ -1,9 +1,10 @@
-// hide title
+// hide about page title
 .post-97 .entry-header {
   position: absolute;
   z-index: -9999;
 }
 
+// about page hero section
 .post-97 .entry-content .hero-section {
   height: 400px;
   overflow: hidden;
@@ -14,5 +15,6 @@
   }
   @media (min-width: $breakpoint-mobile-lrg) {
     height: auto;
+    max-height: 600px;
   }
 }
