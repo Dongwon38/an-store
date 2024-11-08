@@ -1,4 +1,86 @@
 <?php
+		
+// disable zoom and lightbox functions
+function disable_woocommerce_gallery_features() {
+    remove_theme_support('wc-product-gallery-zoom'); 
+    remove_theme_support('wc-product-gallery-lightbox'); 
+
+}
+add_action('after_setup_theme', 'disable_woocommerce_gallery_features', 100);
+
+// Remove SKU and Product Category
+remove_action('woocommerce_single_product_summary','woocommerce_template_single_meta',40);
+
+// Remove Product Tags
+remove_action('woocommerce_after_single_product_summary','woocommerce_output_product_data_tabs', 10);
+
+// Remove sale badge
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+
+
+
+// =============== Single Product Page Start =============== //
+
+// disable default WooCommerce gallery
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+
+// add custom gallery
+add_action('woocommerce_before_single_product_summary', 'custom_product_gallery', 20);
+
+function custom_product_gallery() {
+    global $product;
+    // imgs from gallery
+    $attachment_ids = $product->get_gallery_image_ids();
+    // thumbnail
+    $main_image_id = $product->get_image_id();
+    ?>
+    
+    <div class="custom-slider">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <!-- last img of slider (fake slide) -->
+                <div class="slider-image">
+                    <?php echo wp_get_attachment_image(end($attachment_ids), 'full'); ?>
+                </div>
+                
+                <!-- main img -->
+                <div class="slider-image">
+                    <?php echo wp_get_attachment_image($main_image_id, 'full'); ?>
+                </div>
+    
+                <!-- gallery imgs -->
+                <?php foreach ($attachment_ids as $attachment_id) : ?>
+                    <div class="slider-image">
+                        <?php echo wp_get_attachment_image($attachment_id, 'full'); ?>
+                    </div>
+                <?php endforeach; ?>
+    
+                <!-- first img of slider (fake slide) -->
+                <div class="slider-image">
+                    <?php echo wp_get_attachment_image($main_image_id, 'full'); ?>
+                </div>
+            </div>
+            <!-- slide button -->
+            <button class="slider-btn prev"><</button>
+            <button class="slider-btn next">></button>
+        </div>
+    
+        <!-- thumbnail part -->
+        <div class="thumbnail-wrapper">
+            <div class="thumbnails">
+                <div class="thumbnail"><?php echo wp_get_attachment_image($main_image_id, 'thumbnail'); ?></div>
+                <?php foreach ($attachment_ids as $attachment_id) : ?>
+                    <div class="thumbnail"><?php echo wp_get_attachment_image($attachment_id, 'thumbnail'); ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+
+<?php
+}
+
+
+// =============== Single Product Page Start =============== //
 
 // For semantic structuring
 function add_opening_section_tag_for_product_details() {
@@ -43,11 +125,6 @@ function display_product_description() {
 }
 add_action('woocommerce_single_product_summary', 'display_product_description', 31);
 
-// Remove SKU and Product Category
-remove_action('woocommerce_single_product_summary','woocommerce_template_single_meta',40);
-
-// Remove Product Tags
-remove_action('woocommerce_after_single_product_summary','woocommerce_output_product_data_tabs', 10);
 
 // Output Random Products if there are no other products in the same category
 function output_other_products() {
@@ -99,5 +176,15 @@ function woocommerce_related_products_custom_args( $args ) {
 
 add_action('woocommerce_output_related_products_args','woocommerce_related_products_custom_args');
 
-// Remove sale badge
-remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+
+//  ===== Add JavaScript function ===== //
+function add_custom_gallery_js() {
+	wp_enqueue_script( 
+        'custom-gallery-js', 
+        get_template_directory_uri() . '/js/productgallery.js', 
+        array(), 
+        '1.0.0', 
+        array('strategy' => 'defer') 
+    );
+}
+add_action( 'init', 'add_custom_gallery_js' );
