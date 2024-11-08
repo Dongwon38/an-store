@@ -8,9 +8,9 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: #4169e1; //royalblue
-$color__link-visited: #800080; //purple
-$color__link-hover: #191970; //midnightblue
+$color__link: white; //royalblue
+$color__link-visited: white; //purple
+$color__link-hover: white; //midnightblue
 $color__text-main: #404040;
 
 $color__border-button: #ccc #ccc #bbb;
@@ -18,3 +18,14 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+// custom colours
+$color__general-text: #595959;
+$color__label-text: #777;
+$color__strong-text: #444;
+
+$color__button-base: #444;
+$color__button-text: #fff;
+$color__greyscale: #eee;
+
+$color__core: #fc6d00;

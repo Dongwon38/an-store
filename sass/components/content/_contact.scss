@@ -1,0 +1,88 @@
+// hide contact page title
+.post-107 .entry-header {
+  position: absolute;
+  z-index: 100;
+  top: 14rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  @media (min-width: $breakpoint-tablet-sm) {
+    z-index: -9999;
+  }
+}
+
+// about page hero section
+.post-107 .entry-content {
+  // hero image
+  figure {
+    height: 400px;
+    overflow: hidden;
+    @media (min-width: $breakpoint-tablet-sm) {
+      height: auto;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+  }
+}
+//   info content
+.post-107 .wp-block-group {
+  h2 {
+    display: none;
+    color: $color__general-text;
+    @media (min-width: $breakpoint-tablet-sm) {
+      display: block;
+    }
+  }
+  p {
+    max-width: 470px;
+    margin: auto;
+    &:nth-of-type(1) {
+      padding: 24px 0;
+      font-weight: 600;
+      color: $color__strong-text;
+    }
+    &:nth-of-type(2) {
+      padding: 16px;
+      color: $color__general-text;
+    }
+  }
+}
+
+// contact form
+.post-107 .wpforms-container {
+  padding: 0 32px 16px 32px !important;
+  width: 100%;
+  max-width: 600px;
+
+  .wpforms-submit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .wpforms-field-label {
+    color: $color__label-text !important;
+    font-weight: 400 !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+// layout for wide screen
+@media (min-width: $breakpoint-tablet-sm) {
+  .post-107 .entry-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    figure {
+      grid-row: span 2;
+    }
+
+    .wp-block-group {
+      padding: 0 16px;
+    }
+  }
+}
