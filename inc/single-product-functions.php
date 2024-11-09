@@ -184,7 +184,7 @@ function display_product_description() {
         <?php
     }
 }
-add_action('woocommerce_single_product_summary', 'display_product_description', 31);
+add_action('woocommerce_after_single_product_summary', 'display_product_description', 11);
 
 
 
