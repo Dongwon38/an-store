@@ -3,7 +3,7 @@
   display: none;
 }
 
-// hero-section with siwper in front-page
+// =============== hero-section with siwper start =============== //
 .hero-section.home {
   height: 450px;
   @media (min-width: $breakpoint-tablet-sm) {
@@ -93,6 +93,53 @@
     }
     .swiper-pagination-bullet-active {
       background-color: white;
+    }
+  }
+}
+// =============== hero-section with siwper end =============== //
+
+// featured
+.home .entry-content .wp-block-woocommerce-product-collection,
+// work (instagram)
+.home .entry-content .wp-block-group:nth-of-type(2),
+// blog
+.home .entry-content .wp-block-group:nth-of-type(3) {
+  padding: 3rem 1rem;
+}
+
+// blog section
+.home .entry-content .wp-block-group:nth-of-type(3) {
+  padding-bottom: 6rem;
+  a {
+    text-decoration: none;
+  }
+  .wp-block-latest-posts__list {
+    gap: 3rem;
+    width: 100%;
+    @media (min-width: 600px) {
+      gap: 8px;
+    }
+    li {
+      margin: 0;
+      @media (min-width: 600px) {
+        width: calc(25% - 6px);
+      }
+      // post container
+      a:nth-of-type(1) {
+        width: 100%;
+      }
+      // post img
+      img {
+        width: 100%;
+      }
+      // post title
+      .wp-block-latest-posts__post-title {
+        color: $color__general-text;
+      }
+      // post date
+      .wp-block-latest-posts__post-date {
+        color: $color__label-brighter-text;
+      }
     }
   }
 }

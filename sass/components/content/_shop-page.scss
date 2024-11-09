@@ -1,0 +1,49 @@
+.woocommerce-shop h1 {
+  text-align: center;
+  font-size: 24px;
+}
+
+// sub-navigation in Shop page
+.display-none {
+  display: none !important;
+}
+.display-block {
+  display: block !important;
+}
+
+.sub-navigation {
+  padding-bottom: 2rem;
+  ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 4px;
+  }
+  button.sub-category {
+    position: relative;
+    border: none;
+    border-radius: 0;
+    background: none;
+    overflow: hidden;
+    font-size: 14px;
+    padding: 12px 12px;
+    @media (min-width: $breakpoint-mobile) {
+      padding: 12px 16px;
+    }
+  }
+
+  button.sub-category::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease;
+  }
+
+  button.sub-category.sub-nav-activated::after {
+    width: 100%;
+  }
+}
