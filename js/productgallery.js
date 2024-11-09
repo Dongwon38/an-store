@@ -74,3 +74,27 @@ document.addEventListener("DOMContentLoaded", function () {
   // 초기화 - 첫 번째 슬라이드의 썸네일을 활성화
   updateThumbnails(currentIndex - 1);
 });
+
+// test button
+document.addEventListener("DOMContentLoaded", function () {
+  // 감소 버튼 클릭 이벤트
+  document.querySelector(".decrease").addEventListener("click", function () {
+    const input = document.querySelector(
+      ".single-product .add-to-cart-wrapper .input-text"
+    );
+    let value = parseInt(input.value);
+    if (value > 1) {
+      // 최소값을 1로 설정
+      input.value = value - 1;
+    }
+  });
+
+  // 증가 버튼 클릭 이벤트
+  document.querySelector(".increase").addEventListener("click", function () {
+    const input = document.querySelector(
+      ".single-product .add-to-cart-wrapper .input-text"
+    );
+    let value = parseInt(input.value);
+    input.value = value + 1;
+  });
+});

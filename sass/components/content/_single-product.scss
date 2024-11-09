@@ -1,4 +1,16 @@
-// breadcrumb
+// single product page layout
+
+.single-product .site-main {
+  max-width: 600px;
+  margin: auto;
+}
+@media (min-width: $breakpoint-tablet-lrg) {
+  .single-product .site-main {
+    max-width: $max-width;
+  }
+}
+
+// breadcrumb in general
 .breadcrumbs {
   display: flex;
   gap: 4px;
@@ -16,7 +28,16 @@
   }
 }
 
+// breadcrumb for single product page
+.single-product .breadcrumbs {
+  margin: 16px 0 0 0;
+}
+
 // =============== slider start =============== //
+.single-product .site-main .product.type-product {
+  padding: 0;
+}
+
 .custom-slider {
   display: flex;
   flex-direction: column;
@@ -39,9 +60,13 @@
 .slider-image {
   min-width: 100%;
   height: 400px;
+  @media (min-width: $breakpoint-tablet-sm) {
+    height: 500px;
+  }
   cursor: pointer;
   img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
   }
 }
@@ -72,7 +97,7 @@
 
 // thumbnail section
 .thumbnail-wrapper {
-  margin: 10px 4px 4px 4px;
+  margin: 4px;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -106,7 +131,138 @@
 // =============== slider end =============== //
 
 .single-product .entry-summary {
-  .product-main-details {
-    padding: 0 16px;
+  padding: 24px 16px 16px 16px;
+}
+
+// product title
+.single-product .product-main-details h1 {
+  margin: 8px 0 24px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+// price tag style
+.single-product .product-main-details .price {
+  display: flex;
+  margin: 0;
+  padding: 8px 0;
+  gap: 8px;
+  // discounted pircce
+  ins {
+    order: 1;
+    background: none;
+    font-weight: 600;
+    span bdi,
+    span bdi span {
+      font-size: 14px;
+    }
+  }
+  // normal price
+  del {
+    order: 2;
+    padding-top: 4px;
+  }
+
+  del,
+  del span,
+  del bdi,
+  del bdi span {
+    color: $color__label-brighter-text;
+    font-size: 12px;
+  }
+}
+
+// short description
+.single-product .woocommerce-product-details__short-description p {
+  margin-bottom: 0;
+}
+
+// product dimensions
+.single-product .product-dimensions {
+  font-size: 12px;
+  color: $color__label-brighter-text;
+  margin: 4px 0 0 0;
+}
+
+// add to cart design
+
+.add-to-cart-wrapper {
+  position: relative;
+  margin-top: 5rem;
+}
+.add-to-cart-wrapper .label-quantity {
+  margin: 0;
+  color: $color__label-brighter-text;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+// custom quantity button
+.quantity-control-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.quantity-control-button {
+  border: none;
+  background: none;
+  color: $color__general-text;
+}
+.quantity-control-button.increase {
+  margin-left: 1.5rem;
+}
+.quantity-control-button.decrease {
+  margin-right: 1.5rem;
+}
+
+.single-product form.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // quantity button
+  div.quantity {
+    input.qty {
+      width: 50px;
+      text-align: center;
+      margin-left: 0;
+      border: none;
+      color: $color__label-text;
+    }
+
+    // arrow button in input number
+    input.qty::-webkit-inner-spin-button,
+    input.qty::-webkit-outer-spin-button {
+      position: absolute;
+    }
+  }
+  // add to cart button
+  .single_add_to_cart_button {
+    margin-top: 1.5rem;
+    cursor: pointer;
+    border: none;
+    background-color: $color__core;
+    padding: 16px 20px;
+    border-radius: 5px;
+    color: white;
+  }
+}
+
+// section-product-more-details
+.single-product .section-product-more-details {
+  margin-top: 3rem;
+  h2 {
+    margin: 0;
+    color: $color__label-brighter-text;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  p {
+    margin: 0;
   }
 }

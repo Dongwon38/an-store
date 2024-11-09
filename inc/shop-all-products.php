@@ -57,6 +57,9 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
 // Custom Breadcrumbs
 function custom_breadcrumbs() {
+    if(is_shop()) {
+
+    
     global $product;
     $homepageLink = get_permalink(66);
     $shopPageLink = get_permalink(8);
@@ -76,5 +79,6 @@ function custom_breadcrumbs() {
         <?php endif; ?>
     </ul>
     <?php
+    }
 }
 add_action('woocommerce_before_main_content', 'custom_breadcrumbs', 20);
