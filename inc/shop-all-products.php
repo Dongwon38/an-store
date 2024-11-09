@@ -57,15 +57,28 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
 // Custom Breadcrumbs
 function custom_breadcrumbs() {
+    if(is_shop()) {
+
+    
     global $product;
     $homepageLink = get_permalink(66);
     $shopPageLink = get_permalink(8);
     ?>
 
-    <ul>
+    <ul class="breadcrumbs">
         <li><a href="<?php echo $homepageLink; ?>"><?php echo esc_html("home"); ?></a></li>
+        <p>/</p>
         <li><a href="<?php echo $shopPageLink; ?>"><?php echo esc_html("shop"); ?></a></li>
+        
+        <?php 
+        if (is_product() && isset($GLOBALS['product'])) :
+            $product = wc_get_product();
+            ?>
+            <p>/</p>
+            <li><?php echo esc_html($product->get_name()); ?></li>
+        <?php endif; ?>
     </ul>
     <?php
+    }
 }
 add_action('woocommerce_before_main_content', 'custom_breadcrumbs', 20);
