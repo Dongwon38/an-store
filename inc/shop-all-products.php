@@ -6,7 +6,7 @@ function shop_all_products() {
     if ( !empty( $product_categories ) && !is_wp_error( $product_categories ) ) { ?>
         <nav class="sub-navigation">
             <ul>
-                <li><button class="sub-category" value="all">All</button></li>
+                <li><button class="sub-category sub-nav-activated" value="all">All</button></li>
                 <?php foreach ( $product_categories as $category ) :
                     $category_slug = $category->slug; 
                     $category_name = $category->name; ?>
