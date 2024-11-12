@@ -5,6 +5,14 @@
 .updated:not(.published) {
   display: none;
 }
-body {
-  padding: 0 9rem;
+
+@media (min-width: $breakpoint-tablet-sm) {
+  body {
+    padding: 0 5rem;
+  }
+}
+@media (min-width: $breakpoint-tablet-lrg) {
+  body {
+    padding: 0 9rem;
+  }
 }
