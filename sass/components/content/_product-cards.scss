@@ -2,6 +2,7 @@
     display: none !important;
 }
 
+// Remove add to cart button on featured products on homepage
 .wc-block-product-template .wp-block-button {
     display: none !important;
 }
@@ -91,10 +92,6 @@
 @media (min-width: $breakpoint-tablet-sm) {
     .wp-block-woocommerce-product-collection ul, .products {
         grid-template-columns: repeat(4, 1fr)!important;
-    }
-
-    .wc-block-product .wp-block-woocommerce-product-price {
-        margin-bottom: 2rem;
     }
 }
 

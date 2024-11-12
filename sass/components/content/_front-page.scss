@@ -143,3 +143,51 @@
     }
   }
 }
+
+// Front page arrow svg
+
+.rotate {
+  transform: rotate(15deg);
+}
+
+.site-main {
+  position: relative;
+}
+
+#left-arrow {
+  display: none;
+}
+
+#right-arrow {
+  position: absolute;
+  right: 0.75rem;
+  top: 32rem;
+  transform: rotate(30deg) scale(0.8);
+}
+
+@media(min-width: $breakpoint-tablet-sm) {
+  #left-arrow {
+    display: block;
+    position: absolute;
+    left: -2rem;
+    top: 55rem;
+  }
+
+  #right-arrow {
+    right: -2rem;
+    top: 34rem;
+    transform: rotate(30deg) scale(1);
+  }
+}
+
+@media(min-width: $breakpoint-tablet-lrg) {
+  #left-arrow {
+    top: 56rem;
+  }
+}
+
+@media(min-width: $breakpoint-desktop) {
+  #left-arrow {
+    top: 58rem;
+  }
+}
