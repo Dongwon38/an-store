@@ -26,7 +26,8 @@
     padding: 0 0.5rem;
     color: $color__general-text;
     text-align: center !important;
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
+    text-decoration: none;
 }
 
 .wc-block-product h3 a, .product .add_to_cart_button, .product .product_type_grouped, .product .product_type_external {
@@ -38,7 +39,7 @@
 
 .wc-block-product .wp-block-woocommerce-product-price, .product .price {
     flex: 1;
-    padding: 0 0.5rem;
+    padding: 0;
     color: $color__general-text;
     align-items: center;
 }
@@ -57,7 +58,7 @@
 // Add to cart | Choose Options
 
 .wc-block-product .wp-block-button, .product .add_to_cart_button {
-    border: 2px solid $color__button-base;
+    border: 1px solid $color__button-base;
 }
 
 .product .add_to_cart_button, .product .product_type_grouped, .product .product_type_external {
@@ -68,19 +69,18 @@
 
 .wc-block-product .wp-block-button button, .wc-block-product .wp-block-button a, .product .add_to_cart_button, .product .product_type_grouped, .product .product_type_external {
     border-radius: 0;
-    // width: 40%;
     margin: 0 auto;
     padding: 0.5rem;
     font-size: 1rem;
     text-align: center;
     color: $color__general-text;
     background-color: $color__button-text;
-    border: 2px solid $color__button-base;
+    border: 1px solid $color__button-base;
     transition: border 0.2s ease;
 }
 
 .wc-block-product .wp-block-button:hover, .wc-block-product .wp-block-button:hover, .product .add_to_cart_button:hover, .product .product_type_grouped:hover, .product .product_type_external:hover {
-    border: 2px solid $color__core;
+    border: 1px solid $color__core;
     transition: border 0.2s ease;
 }
 
@@ -106,4 +106,24 @@
     .product .add_to_cart_button, .product .product_type_grouped, .product .product_type_external {
         margin-top: 2rem;
     }
+}
+
+// Related product cards
+
+.related, .related ul li {
+    display: unset !important;
+}
+
+.related ul {
+    gap: 0.75rem;
+}
+
+.related h2 {
+    text-decoration: none !important;
+}
+
+.related .add_to_cart_button, .related .product_type_external {
+    margin-top: 2rem;
+    width: fit-content;
+    font-size: .8125rem;
 }
