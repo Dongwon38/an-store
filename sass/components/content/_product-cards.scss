@@ -2,6 +2,10 @@
     display: none !important;
 }
 
+.wc-block-product-template .wp-block-button {
+    display: none !important;
+}
+
 .wp-block-woocommerce-product-collection ul, .products {
     display: grid;
     grid-template-columns: 1fr 1fr !important;
