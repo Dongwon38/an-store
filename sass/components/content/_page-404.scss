@@ -1,0 +1,13 @@
+.error404 .site-main {
+  padding: 0 16px;
+  .not-found {
+    .page-content {
+      padding-bottom: 3rem;
+      a {
+        margin: 9rem 0;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
