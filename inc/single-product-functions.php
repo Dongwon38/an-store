@@ -241,15 +241,3 @@ function woocommerce_related_products_custom_args( $args ) {
 
 add_action('woocommerce_output_related_products_args','woocommerce_related_products_custom_args');
 
-
-//  ===== Add JavaScript function ===== //
-function add_custom_gallery_js() {
-	wp_enqueue_script( 
-        'custom-gallery-js', 
-        get_template_directory_uri() . '/js/productgallery.js', 
-        array(), 
-        '1.0.0', 
-        array('strategy' => 'defer') 
-    );
-}
-add_action( 'init', 'add_custom_gallery_js' );

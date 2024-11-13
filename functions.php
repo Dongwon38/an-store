@@ -144,13 +144,21 @@ add_action( 'widgets_init', 'an_store_widgets_init' );
 function an_store_scripts() {
 	wp_enqueue_style( 'an-store-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'an-store-style', 'rtl', 'replace' );
-
 	wp_enqueue_script( 'an-store-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	wp_enqueue_script('an-store-accordion', get_template_directory_uri() . '/js/accordion.js', array(), '1.0.0', true );
+	
+	wp_enqueue_script( 'accordion-for-comment', get_template_directory_uri() . '/js/accordion-for-comment.js', array(), '1.0.0', );
+	
+	if ( is_product() ) {
+		wp_enqueue_script( 'custom-gallery-js', get_template_directory_uri() . '/js/productgallery.js', array(), '1.0.0', array('strategy' => 'defer') );
+	}
 	if ( is_page(97) ) {
+		wp_enqueue_script( 'an-store-accordion', get_template_directory_uri() . '/js/accordion.js', array(), '1.0.0', true );
 		wp_enqueue_style( 'swiper-styles', get_template_directory_uri() .'/css/swiper-bundle.css', array(), '7.4.1' );
 		wp_enqueue_script( 'swiper-scripts', get_template_directory_uri() .'/js/swiper-bundle.min.js', array(), '7.4.1', array( 'strategy' => 'defer' )  );
 		wp_enqueue_script( 'swiper-settings', get_template_directory_uri() .'/js/swiper-settings.js', array( 'swiper-scripts' ), _S_VERSION, array( 'strategy' => 'defer' )  );
+	}
+	if ( is_shop() ) {
+		wp_enqueue_script( 'sub-navigation', get_template_directory_uri() . '/js/subnavigation.js', array(), '1.0.0', array('strategy' => 'defer') );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -158,6 +166,12 @@ function an_store_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'an_store_scripts' );
+
+
+
+
+
+
 
 /**
  * Implement the Custom Header feature.

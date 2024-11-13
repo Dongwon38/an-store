@@ -1,0 +1,277 @@
+.single-post .site-main,
+.blog .site-main {
+  padding: 0 16px;
+}
+
+.single-blog-post {
+  margin-bottom: 6rem;
+  a {
+    text-decoration: none;
+  }
+}
+
+// sidebar
+aside.widget-area {
+  padding: 0 16px;
+  .widget_block {
+    // search bar section
+    .wp-block-search__inside-wrapper {
+      width: 100% !important;
+      max-width: 400px;
+    }
+
+    // latest posts section
+    ul.wp-block-latest-posts {
+      // single post
+      li {
+        height: 150px;
+        margin-bottom: 8px;
+        // img
+        div {
+          img {
+            float: left;
+            margin-right: 8px;
+          }
+        }
+        // title
+        a {
+          font-weight: 600;
+          text-decoration: none;
+        }
+        // date
+        time {
+          color: $color__label-brighter-text;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-tablet-lrg) {
+  .single-post .site,
+  .blog .site {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    column-gap: 32px;
+  }
+
+  header,
+  footer {
+    grid-column: span 2;
+  }
+
+  //   main
+  .single-post .site-main .blog .site-main {
+    padding: 0;
+  }
+
+  //   aside
+  aside.widget-area {
+    padding: 0;
+    padding-top: 7rem;
+
+    h2 {
+      font-size: 20px;
+      color: $color__label-text;
+      margin: 24px 0 8px 0;
+    }
+
+    ul.wp-block-latest-posts {
+      li {
+        height: 100px !important;
+      }
+      div img {
+        height: 100px;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .single-post .site,
+  .blog .site {
+    grid-template-columns: 1fr 320px;
+
+    ul.wp-block-latest-posts {
+      li {
+        height: 150px !important;
+      }
+      div img {
+        height: 150px;
+      }
+    }
+  }
+}
+
+// single-blog-post
+.single-post {
+  .entry-header {
+    padding-bottom: 16px;
+    h1 {
+      margin: 24px 0 0 0;
+    }
+
+    .entry-meta,
+    .entry-meta a {
+      color: $color__label-brighter-text;
+    }
+  }
+}
+
+// post nav link
+.single-post .site-main .post-navigation {
+  padding-top: 3rem;
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-previous,
+  .nav-next {
+    a {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      .nav-subtitle {
+        color: $color__label-brighter-text;
+        font-size: 12px;
+      }
+      .nav-title {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .nav-next a .nav-subtitle {
+    text-align: right;
+  }
+}
+
+// comments area
+// comment box
+#comments > div > div.title-box {
+  display: flex;
+  justify-content: space-between;
+  .comment-custom-reply-title {
+    margin: 0;
+  }
+  .toggle-comments {
+    border-radius: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px 8px 8px;
+  }
+}
+
+.comments-accordion {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+.comments-accordion.show {
+  max-height: 1500px;
+}
+
+.comment-reply-title {
+  display: none;
+}
+.form-submit input {
+  border: none;
+  padding: 12px 0;
+  background: none;
+  cursor: pointer;
+}
+
+// comment respond box
+
+#author,
+#email {
+  border-radius: 0 !important;
+  border: none !important;
+  border-bottom: 1px solid $color__label-brighter-text !important;
+}
+
+.comment-form-comment {
+  margin: 0;
+}
+
+@media (min-width: $breakpoint-mobile-lrg) {
+  .comment-respond {
+    .comment-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+
+      .comment-notes,
+      .comment-form-comment,
+      .comment-form-cookies-consent,
+      .form-submit {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+#comments > h2 {
+  font-size: 20px !important;
+}
+
+// comment list
+.comments-area {
+  padding: 3rem 0;
+  .comment-form {
+    .comment-form-author,
+    .comment-form-email {
+      input {
+        width: 100% !important;
+      }
+    }
+
+    .comment-form-url {
+      display: none;
+    }
+  }
+
+  .comment-list {
+    .comment {
+      margin-bottom: 3rem;
+      .comment-author {
+        img {
+          display: none;
+        }
+        a {
+          text-decoration: none;
+        }
+        .says {
+          display: none;
+        }
+      }
+
+      //   date
+      .comment-metadata {
+        a {
+          text-decoration: none;
+          font-size: 12px;
+          color: $color__label-brighter-text;
+        }
+      }
+
+      //   reply
+      .reply {
+        display: flex;
+        justify-content: flex-end;
+        a {
+          text-decoration: none;
+          color: $color__label-brighter-text;
+          font-size: 12px;
+        }
+      }
+
+      // children reply
+      ol.children {
+        padding-left: 2rem;
+      }
+    }
+  }
+}

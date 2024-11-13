@@ -37,21 +37,7 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 // remove sale badge
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
 
-
-//  ===== Add JavaScript function ===== //
-function shop_sub_navigation() {
-	wp_enqueue_script( 
-        'sub-navigation', 
-        get_template_directory_uri() . '/js/subnavigation.js', 
-        array(), 
-        '1.0.0', 
-        array('strategy' => 'defer') 
-    );
-}
-add_action( 'init', 'shop_sub_navigation' );
-
-
-// Remove Breadcrumbs
+// remove Breadcrumbs
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
 
