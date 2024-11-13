@@ -22,12 +22,13 @@ get_header();
 				<article class="single-blog-post">
 					<a href="<?php the_permalink(); ?>">
 						<h2><?php the_title(); ?></h2>
-					</a>
+					
 					<p><?php echo esc_html(get_post_time('F j, Y')); ?></p>
 					<?php
 					the_post_thumbnail();
 					the_excerpt();
 					?>
+					</a>
 					<p><?php comments_number(); ?></p>
 				</article>
 				<?php
