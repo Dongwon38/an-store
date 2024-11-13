@@ -151,6 +151,8 @@ function an_store_scripts() {
 	if ( is_product() ) {
 		wp_enqueue_script( 'custom-gallery-js', get_template_directory_uri() . '/js/productgallery.js', array(), '1.0.0', array('strategy' => 'defer') );
 	}
+	wp_enqueue_script('an-store-flashing-svgs', get_template_directory_uri() . '/js/flashing-svgs.js', array(), '1.0.0', true );
+	
 	if ( is_page(97) ) {
 		wp_enqueue_script( 'an-store-accordion', get_template_directory_uri() . '/js/accordion.js', array(), '1.0.0', true );
 		wp_enqueue_style( 'swiper-styles', get_template_directory_uri() .'/css/swiper-bundle.css', array(), '7.4.1' );

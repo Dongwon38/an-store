@@ -72,7 +72,7 @@
     color: $color__strong-text; 
 }
 
-@media (min-width: $breakpoint-tablet-sm) {
+@media (min-width: $breakpoint-tablet-lrg) {
     .site-footer {
         padding: 0.5rem;
         display: flex;
@@ -92,7 +92,7 @@
     }
     
     .site-footer .site-info section {
-        padding: 1rem;
+        padding: 0.75rem;
     }
 
     .menu-social-media-navigation-container ul li {
