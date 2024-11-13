@@ -68,3 +68,6 @@ function custom_breadcrumbs() {
     }
 }
 add_action('woocommerce_before_main_content', 'custom_breadcrumbs', 20);
+
+// Remove add to cart button
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
