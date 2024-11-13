@@ -30,8 +30,15 @@
 			<?php
 			// custom logo from backend
 			the_custom_logo();
-			// second logo or title manually
-			echo "<p class='sub-logo'>Teaylormade</p>";
+
+			// large logo for desktop screen
+			$image = get_field('large_logo'); ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="large-logo">
+			<?php if( $image ) {
+				echo wp_get_attachment_image( $image, 'full' );
+			} ?></a>
+
+			<?php 
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
