@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const thumbnails = document.querySelectorAll(".thumbnail");
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
-  let currentIndex = 1; // 슬라이더 시작 인덱스 (가짜 슬라이드를 고려하여 첫 번째 이미지로)
+  let currentIndex = 1;
   const totalImages = images.length;
 
-  // 슬라이더 초기 위치 설정
+  // Initial slider position
   slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-  // 썸네일 업데이트 함수
+  // Thumbnail update function
   function updateThumbnails(realIndex) {
     thumbnails.forEach((thumbnail) => thumbnail.classList.remove("active"));
     thumbnails[realIndex].classList.add("active");
@@ -20,20 +20,20 @@ document.addEventListener("DOMContentLoaded", function () {
     slider.style.transition = "transform 0.5s ease";
     currentIndex = index;
 
-    // 실제 인덱스를 썸네일에 업데이트
+    // Update real index for thumbnails
     let realIndex = currentIndex - 1;
     if (currentIndex === 0) {
-      realIndex = thumbnails.length - 1; // 첫 번째 가짜 슬라이드에서 마지막 이미지 썸네일을 활성화
+      realIndex = thumbnails.length - 1; // Activate the last image thumbnail for the first fake slide
     } else if (currentIndex === totalImages - 1) {
-      realIndex = 0; // 마지막 가짜 슬라이드에서 첫 번째 이미지 썸네일을 활성화
+      realIndex = 0; // Activate the first image thumbnail for the last fake slide
     }
 
-    // 썸네일 업데이트
+    // Update thumbnails
     updateThumbnails(realIndex);
 
-    // 슬라이더 위치 업데이트
+    // Update slider position
     if (currentIndex >= totalImages - 1) {
-      // 마지막 슬라이드에서 첫 번째로 부드럽게 이동
+      // Smoothly move from the last slide to the first
       slider.style.transform = `translateX(-${currentIndex * 100}%)`;
       setTimeout(() => {
         slider.style.transition = "none";
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;
       }, 500);
     } else if (currentIndex <= 0) {
-      // 첫 번째 슬라이드에서 마지막으로 부드럽게 이동
+      // Smoothly move from the first slide to the last
       slider.style.transform = `translateX(0%)`;
       setTimeout(() => {
         slider.style.transition = "none";
@@ -49,47 +49,47 @@ document.addEventListener("DOMContentLoaded", function () {
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;
       }, 500);
     } else {
-      // 중간 슬라이드에서는 정상적인 이동
+      // Regular movement for middle slides
       slider.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
   }
 
-  // 이전 버튼 클릭 이벤트
+  // Previous button click event
   prevBtn.addEventListener("click", () => {
     updateSlider(currentIndex - 1);
   });
 
-  // 다음 버튼 클릭 이벤트
+  // Next button click event
   nextBtn.addEventListener("click", () => {
     updateSlider(currentIndex + 1);
   });
 
-  // 썸네일 클릭 시 슬라이더 이미지 변경
+  // Change slider image on thumbnail click
   thumbnails.forEach((thumbnail, index) => {
     thumbnail.addEventListener("click", () => {
-      updateSlider(index + 1); // 실제 이미지 인덱스로 이동
+      updateSlider(index + 1); // Move to the actual image index
     });
   });
 
-  // 초기화 - 첫 번째 슬라이드의 썸네일을 활성화
+  // Initialization - Activate the thumbnail for the first slide
   updateThumbnails(currentIndex - 1);
 });
 
 // test button
 document.addEventListener("DOMContentLoaded", function () {
-  // 감소 버튼 클릭 이벤트
+  // Decrease button click event
   document.querySelector(".decrease").addEventListener("click", function () {
     const input = document.querySelector(
       ".single-product .add-to-cart-wrapper .input-text"
     );
     let value = parseInt(input.value);
     if (value > 1) {
-      // 최소값을 1로 설정
+      // Set minimum value to 1
       input.value = value - 1;
     }
   });
 
-  // 증가 버튼 클릭 이벤트
+  // Increase button click event
   document.querySelector(".increase").addEventListener("click", function () {
     const input = document.querySelector(
       ".single-product .add-to-cart-wrapper .input-text"
