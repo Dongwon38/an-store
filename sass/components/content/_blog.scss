@@ -31,6 +31,7 @@ aside.widget-area {
           img {
             float: left;
             margin-right: 8px;
+            width: 150px;
           }
         }
         // title
@@ -80,7 +81,8 @@ aside.widget-area {
       li {
         height: 100px !important;
       }
-      div img {
+      li div img {
+        width: 100px !important;
         height: 100px;
       }
     }
@@ -96,7 +98,8 @@ aside.widget-area {
       li {
         height: 150px !important;
       }
-      div img {
+      li div img {
+        width: 150px !important;
         height: 150px;
       }
     }
