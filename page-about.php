@@ -39,7 +39,7 @@ get_header();
 		<article>
 			<h3>
 				<button class="accordion-title">
-					<?php echo get_sub_field('group_heading');?>
+					<span><?php echo get_sub_field('group_heading');?></span>
 					<svg class="accordion-icon" width="20px" height="20px" viewBox="0 -5 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     				<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
        				 <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-572.000000, -1200.000000)" fill="#000000">
@@ -56,23 +56,38 @@ get_header();
 						<?php if (have_rows('contents')) : ?>
 						<?php while (have_rows('contents')): the_row(); ?>
 								<div class="swiper-slide">
-									<h4> <?php echo get_sub_field('single_content_title') ?> </h4>
-									<p> <?php echo get_sub_field('single_content_description') ?> </p>
+									<h4>
+										<?php 
+										$contentTitle = get_sub_field('single_content_title');
+										if (!empty(trim($contentTitle))) {
+											echo esc_html($contentTitle);
+										}
+										?>
+									</h4>
+									<p>
+										<?php 
+										$contentDescription =  get_sub_field('single_content_description');
+										if (!empty(trim($contentDescription))) {
+											echo esc_html($contentDescription);
+										}
+										?>
+									</p>
 								
 									<?php if (have_rows('single_content')) : ?>
 										<?php while (have_rows('single_content')) : the_row(); ?>
 										
 										<?php 
 										if (get_row_layout() == 'image_type') {
-										$image = get_sub_field('image');
-										if($image) {
-											echo wp_get_attachment_image($image, 'full');
-										} 
-										} else if (get_row_layout() == 'embed_type') {
-										$embed = get_sub_field('embed');
-										if($embed) {
-											echo $embed;
-										}
+
+											$image = get_sub_field('image');
+											if($image) {
+												echo wp_get_attachment_image($image, 'full');
+											} 
+											} else if (get_row_layout() == 'embed_type') {
+											$embed = get_sub_field('embed');
+											if($embed) {
+												echo $embed;
+											}
 										}
 										?>
 								</div>
