@@ -50,7 +50,7 @@
 .product .product_type_external {
   text-decoration: none;
   text-transform: capitalize;
-  text-align: start;
+  text-align: center;
   color: $color__general-text;
 }
 
@@ -157,4 +157,40 @@
   margin-top: 2rem;
   width: fit-content;
   font-size: 0.8125rem;
+}
+
+// Price tag
+.wc-block-components-product-price,
+.product .price,
+.single-product .product-main-details .price {
+  display: flex !important;
+  margin: 0;
+  padding: 8px 0;
+  gap: 8px;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  // discounted pircce
+  ins {
+    order: 1;
+    background: none;
+    font-weight: 400;
+    span bdi,
+    span bdi span {
+      font-size: 14px;
+    }
+  }
+  // normal price
+  del {
+    order: 2;
+  }
+
+  del,
+  del span,
+  del bdi,
+  del bdi span {
+    color: $color__label-brighter-text;
+    font-size: 12px;
+  }
 }

@@ -215,6 +215,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 	require get_template_directory() . '/inc/single-product-functions.php';
 	require get_template_directory() . '/inc/shop-all-products.php';
+	require get_template_directory() . '/inc/wordpress-dashboard-functions.php';
 }
 
 /**
@@ -244,3 +245,22 @@ function woocommerce_image_size_override( $size ) {
 	);
 }
 add_filter('woocommerce_get_image_size_thumbnail', 'woocommerce_image_size_override');
+
+
+// Custom login logo
+function custom_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url("https://dongwonkang.info/project-an/wp-content/uploads/2024/11/cropped-TM_icon.jpg");
+			background-repeat: no-repeat;
+        	padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'custom_login_logo' );
+
+
+
+// Custom Block Editor
+add_editor_style();
+add_theme_support( 'editor-styles' );
