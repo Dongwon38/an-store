@@ -34,10 +34,8 @@
 					echo date('Y');
 					echo esc_html(" | A Website By: ");
 					?>
-					<a href="<?php echo esc_url("https://dongwonkang.info"); ?>" target="_blank"><?php echo esc_html("Dongwon"); ?></a>
-					<?php echo esc_html(', '); ?>
-					<a href="<?php echo esc_url("https://frazermok.com"); ?>" target="_blank"><?php echo esc_html("Frazer"); ?></a>
-					<?php echo esc_html(', & '); ?>
+					<a href="<?php echo esc_url("https://dongwonkang.info"); ?>" target="_blank"><?php echo esc_html("Dongwon,"); ?></a>
+					<a href="<?php echo esc_url("https://frazermok.com"); ?>" target="_blank"><?php echo esc_html("Frazer, &"); ?></a>
 					<a href="<?php echo esc_url("https://keannabayaua.com/"); ?>" target="_blank"><?php echo esc_html("Keanna"); ?></a>
 				</p>
 			</section>
