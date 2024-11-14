@@ -3,6 +3,22 @@
   padding: 0 16px;
 }
 
+.other-products ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.other-products ul li {
+  margin-bottom: 4rem;
+}
+
+@media(min-width: $breakpoint-tablet-sm) {
+  .other-products ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .woocommerce-cart .site-main {
   margin-bottom: 3rem;
 }
