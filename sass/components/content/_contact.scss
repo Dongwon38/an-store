@@ -7,7 +7,7 @@
   right: 0;
   text-align: center;
   color: white;
-  @media (min-width: $breakpoint-tablet-sm) {
+  @media (min-width: $breakpoint-tablet-lrg) {
     z-index: -9999;
   }
 }
@@ -18,7 +18,7 @@
   figure {
     height: 400px;
     overflow: hidden;
-    @media (min-width: $breakpoint-tablet-sm) {
+    @media (min-width: $breakpoint-tablet-lrg) {
       height: auto;
     }
     img {
@@ -34,7 +34,7 @@
   h2 {
     display: none;
     color: $color__general-text;
-    @media (min-width: $breakpoint-tablet-sm) {
+    @media (min-width: $breakpoint-tablet-lrg) {
       display: block;
     }
   }
@@ -59,11 +59,21 @@
   width: 100%;
   max-width: 600px;
 
+  input {
+    height: 36px;
+  }
+
   .wpforms-submit-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .wpforms-submit {
+      font-size: 16px;
+      padding: 0 24px;
+    }
   }
+
   .wpforms-field-label {
     color: $color__label-text !important;
     font-weight: 400 !important;
@@ -72,7 +82,7 @@
 }
 
 // layout for wide screen
-@media (min-width: $breakpoint-tablet-sm) {
+@media (min-width: $breakpoint-tablet-lrg) {
   .post-107 .entry-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -84,5 +94,10 @@
     .wp-block-group {
       padding: 0 16px;
     }
+  }
+}
+@media (min-width: $breakpoint-desktop) {
+  .post-107 .entry-content {
+    grid-template-columns: 0.8fr 1fr;
   }
 }

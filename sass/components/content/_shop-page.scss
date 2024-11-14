@@ -25,6 +25,7 @@
     border-radius: 0;
     background: none;
     overflow: hidden;
+    cursor: pointer;
     font-size: 14px;
     padding: 12px 12px;
     @media (min-width: $breakpoint-mobile) {
@@ -39,7 +40,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: black;
+    background-color: $color__general-text;
     transition: width 0.3s ease;
   }
 

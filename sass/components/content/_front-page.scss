@@ -48,7 +48,7 @@
     @media (min-width: $breakpoint-mobile) {
       margin: 64px;
       h2 {
-        margin-top: 10rem;
+        margin-top: 13rem;
       }
       p {
         display: block;
@@ -59,6 +59,7 @@
     }
     @media (min-width: $breakpoint-tablet-sm) {
       margin-left: 96px;
+      margin-top: 144px;
       h2 {
         margin-top: 13rem;
       }
@@ -165,7 +166,7 @@
   transform: rotate(30deg) scale(0.8);
 }
 
-@media(min-width: $breakpoint-tablet-sm) {
+@media (min-width: $breakpoint-tablet-sm) {
   #left-arrow {
     display: block;
     position: absolute;
@@ -180,13 +181,13 @@
   }
 }
 
-@media(min-width: $breakpoint-tablet-lrg) {
+@media (min-width: $breakpoint-tablet-lrg) {
   #left-arrow {
     top: 56rem;
   }
 }
 
-@media(min-width: $breakpoint-desktop) {
+@media (min-width: $breakpoint-desktop) {
   #left-arrow {
     top: 58rem;
   }

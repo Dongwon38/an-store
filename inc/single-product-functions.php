@@ -40,24 +40,32 @@ function custom_product_gallery() {
             <div class="slider">
                 <!-- last img of slider (fake slide) -->
                 <div class="slider-image">
-                    <?php echo wp_get_attachment_image(end($attachment_ids), 'full'); ?>
+                     <a href="<?php echo esc_url(wp_get_attachment_url(end($attachment_ids))); ?>" target="_blank">
+                        <?php echo wp_get_attachment_image(end($attachment_ids), 'full'); ?>
+                    </a>
                 </div>
                 
                 <!-- main img -->
                 <div class="slider-image">
-                    <?php echo wp_get_attachment_image($main_image_id, 'full'); ?>
+                    <a href="<?php echo esc_url(wp_get_attachment_url($main_image_id)); ?>" target="_blank">
+                        <?php echo wp_get_attachment_image($main_image_id, 'full'); ?>
+                    </a>
                 </div>
     
                 <!-- gallery imgs -->
                 <?php foreach ($attachment_ids as $attachment_id) : ?>
                     <div class="slider-image">
-                        <?php echo wp_get_attachment_image($attachment_id, 'full'); ?>
+                        <a href="<?php echo esc_url(wp_get_attachment_url($attachment_id)); ?>" target="_blank">
+                            <?php echo wp_get_attachment_image($attachment_id, 'full'); ?>
+                        </a>
                     </div>
                 <?php endforeach; ?>
     
                 <!-- first img of slider (fake slide) -->
                 <div class="slider-image">
-                    <?php echo wp_get_attachment_image($main_image_id, 'full'); ?>
+                    <a href="<?php echo esc_url(wp_get_attachment_url($main_image_id)); ?>" target="_blank">
+                        <?php echo wp_get_attachment_image($main_image_id, 'full'); ?>
+                    </a>
                 </div>
             </div>
             <!-- slide button -->
@@ -241,3 +249,8 @@ function woocommerce_related_products_custom_args( $args ) {
 
 add_action('woocommerce_output_related_products_args','woocommerce_related_products_custom_args');
 
+// Change the heading of the related product
+function custom_related_products_heading() {
+    return __( 'You may also like', 'an-store' );
+}
+add_filter( 'woocommerce_product_related_products_heading', 'custom_related_products_heading' );

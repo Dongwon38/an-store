@@ -32,11 +32,24 @@
 			the_custom_logo();
 
 			// large logo for desktop screen
-			$image = get_field('large_logo'); ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="large-logo">
-			<?php if( $image ) {
-				echo wp_get_attachment_image( $image, 'full' );
-			} ?></a>
+			$pageID = get_option('page_on_front');
+			
+			$query = new WP_Query( array('page_id' => $pageID) );
+
+			if ( $query -> have_posts() ) :
+				while ( $query -> have_posts() ) :
+					$query -> the_post();
+
+					$image = get_field('large_logo'); ?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="large-logo">
+					<?php if( $image ) :
+						echo wp_get_attachment_image( $image, 'full' );
+					endif;?>
+					</a>
+
+				<?php endwhile;
+				wp_reset_postdata();
+			endif; ?>
 
 			<?php 
 			if ( is_front_page() && is_home() ) :
