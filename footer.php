@@ -14,19 +14,19 @@
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
 			<section>
-				<?php wp_nav_menu(array( 'theme_location' => 'footer-social-media')); ?>
+				<h3><?php echo esc_html("Information"); ?></h3>
+				<?php wp_nav_menu(array( 'theme_location' => 'footer-company-info')); ?>
 			</section>
 			<section>
-				<h3><?php echo esc_html("Company Information"); ?></h3>
-				<?php wp_nav_menu(array( 'theme_location' => 'footer-company-info')); ?>
+				<h3><?php echo esc_html("Links"); ?></h3>
+				<?php wp_nav_menu(array( 'theme_location' => 'footer-site-navigation')); ?>
 			</section>
 			<section>
 				<h3><?php echo esc_html("Resources"); ?></h3>
 				<?php wp_nav_menu(array( 'theme_location' => 'footer-resources')); ?>
 			</section>
 			<section>
-				<h3><?php echo esc_html("Site Navigation"); ?></h3>
-				<?php wp_nav_menu(array( 'theme_location' => 'footer-site-navigation')); ?>
+				<?php wp_nav_menu(array( 'theme_location' => 'footer-social-media')); ?>
 			</section>
 			<section class="footer-copyright">
 				<p>&copy; 

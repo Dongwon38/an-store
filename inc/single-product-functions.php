@@ -249,3 +249,8 @@ function woocommerce_related_products_custom_args( $args ) {
 
 add_action('woocommerce_output_related_products_args','woocommerce_related_products_custom_args');
 
+// Change the heading of the related product
+function custom_related_products_heading() {
+    return __( 'You may also like', 'an-store' );
+}
+add_filter( 'woocommerce_product_related_products_heading', 'custom_related_products_heading' );

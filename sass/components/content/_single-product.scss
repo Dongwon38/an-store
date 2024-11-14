@@ -169,16 +169,21 @@
 }
 
 // price tag style
+.woocommerce-shop .product .price,
 .single-product .product-main-details .price {
   display: flex;
   margin: 0;
   padding: 8px 0;
   gap: 8px;
+
+  font-size: 14px;
+  font-weight: 400;
+
   // discounted pircce
   ins {
     order: 1;
     background: none;
-    font-weight: 600;
+    font-weight: 400;
     span bdi,
     span bdi span {
       font-size: 14px;
@@ -187,7 +192,6 @@
   // normal price
   del {
     order: 2;
-    padding-top: 4px;
   }
 
   del,
@@ -306,5 +310,17 @@
   }
   p {
     margin: 0;
+  }
+}
+
+// related products
+
+.single-product .site-main .related.products {
+  h2 {
+    margin: 16px 16px 0 16px;
+  }
+  .products {
+    padding: 16px !important;
+    padding-bottom: 3rem !important;
   }
 }
