@@ -23,25 +23,83 @@
 
 // about page accordion
 
-.accordion-title {
-  display: block;
-  cursor: pointer;
-  transition: 0.3s ease;
+.about-accordion {
+  margin: 3rem 0;
 }
 
-.accordion-title.active {
-  background-color: $color__border-abbr;
+.about-accordion h3 {
+  margin: 0;
+}
+
+.accordion-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  text-align: start;
+  transition: 0.3s ease;
+  border: none;
+  border-radius: unset;
+  border-left: 2px solid $color__core;
+  padding: 1rem;
+}
+
+.accordion-title:hover, .accordion-title:active, .accordion-title:focus {
+  border: unset;
+  border-left: 2px solid $color__core;
 }
 
 .accordion-icon {
   transition: transform 0.5s ease;
+  margin: 0 0.5rem;
+  min-width: 1.25rem;
 }
 
-.accordion-title.active .accordion-icon {
+.accordion-icon.rotate-icons {
   transform: rotate(180deg);
 }
 
 .accordion-content {
-  display: none;
   overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-content.accordion-active {
+  max-height: 50rem;
+  transition: max-height 0.5s ease;
+}
+
+.accordion-content img {
+  max-height: 35rem;
+  max-width: 50rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.accordion-content iframe {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+// Contact Button Styles
+
+.wp-block-button a {
+  border: 2px solid $color__button-base;
+  background-color: $color__button-base;
+  color: $color__button-text;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.wp-block-button a:hover {
+  background-color: $color__button-text;
+  color: $color__button-base;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
